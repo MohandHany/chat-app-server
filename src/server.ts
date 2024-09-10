@@ -18,6 +18,10 @@ app.use(express.json());
 app.use("/api/user", userController);
 app.use("/api/upload", imageController);
 
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello World!");
+});
+
 app.use(notFound);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   errorHandler(req, res, next, err);
